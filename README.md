@@ -1,8 +1,11 @@
 # Install Tensorflow in a 32 bits linux system
 
-I used the following steps to install tensorflow in a old Asus Eee-Pc 1000H. Granted, it has been upgraded from the original 1 GB of RAM and an 80 GB HDD, to 2 GB of RAM and to 480 GB of SSD storage, that runs Ubuntu Xenial 32 bits without problems.
+I used the following steps to install tensorflow in a old Asus Eee-Pc 1000H. Granted, it has been upgraded from the original 1 GB of RAM and an 80 GB HDD, to 2 GB of RAM and to 480 GB of SSD storage.
 
-I also has been able to install it in a Debian 9 (stretch) 32 bits system, and the instructions are the same.
+I tested the these instructions with the following OS versions and worked without problems:
+* Xubuntu 16.04.6 Xenial Xerus 32 bits.
+* Xubuntu 18.04.3 Bionic Beaver 32 bits.
+* Debian 9.11 Stretch 32 bits.
 
 ## Choose a convenient linux system
 
@@ -37,13 +40,18 @@ You can use eithr python 3 or python 2 and compile tensorflow for that version.
 We need the source code bazel 0.19.2 distribution. We can obtain it and install in a new folder.
 
 ``` bash
+cd $HOME
 wget https://github.com/bazelbuild/bazel/releases/download/0.19.2/bazel-0.19.2-dist.zip
 mkdir Bazel-0-19.2
 cd Bazel-0-19.2
 unzip ../bazel-0.19.2-dist.zip
 ```
 
-Before compiling, we need to remove line 30 of ./src/tools/singlejar/mapped_file_posix.inc file (**#error This code for 64 bit Unix.**) that throws an error if we are not in a 64 bit machine. This bazel version works ok in 32 bits. 
+Before compiling, we need to remove line 30 of ./src/tools/singlejar/mapped_file_posix.inc file (**#error This code for 64 bit Unix.**) that throws an error if we are not in a 64 bit machine. This bazel version works ok in 32 bits.
+
+``` bash
+vi  ./src/tools/singlejar/mapped_file_posix.inc
+```
 
 Also we need to increase the java memory available to Bazel and start compiling it.
 
@@ -55,7 +63,7 @@ export BAZEL_JAVAC_OPTS="-J-Xmx1g"
 When it finishes (It can take several hours), we move the bazel compiled executable to some location in the current user's path
 
 ``` bash
-cp output/bazel /home/user/.local/bin
+sudo cp output/bazel /usr/local/bin
 ```
 
 ## Compile Tensorflow from sources
@@ -63,6 +71,7 @@ cp output/bazel /home/user/.local/bin
 Create a folder and clone tensorflow's 1.13.2 version to it. Starting from version 1.14, tensorflow uses the Intel MKL DNN optimization library that it only works in 64 bits systems. So 1.13.2 is the last version that runs in 32 bits.
 
 ``` bash
+cd $HOME
 mkdir Tensorflow-1.13.2
 cd Tensorflow-1.13.2
 git clone -b v1.13.2 --depth=1 https://github.com/tensorflow/tensorflow .
@@ -154,4 +163,4 @@ Epoch 5/5
 10000/10000 [==============================] - 3s 273us/sample - loss: 0.0666 - acc: 0.9800
 ```
 
-Enjoy you new Tensorflow !!
+Enjoy your new Tensorflow library !!
