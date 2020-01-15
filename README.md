@@ -112,7 +112,10 @@ bazel-bin/tensorflow/tools/pip_package/build_pip_package /tmp/tensorflow_pkg
 And we install the pip package
 
 ``` bash
+#### Xubuntu Xenial and Debian Stretch
 python3 -m pip install --user /tmp/tensorflow_pkg/tensorflow-1.13.2-cp35-cp35m-linux_i686.whl
+#### Ubuntu Bionic
+python3 -m pip install --user /tmp/tensorflow_pkg/tensorflow-1.13.2-cp36-cp36m-linux_i686.whl 
 ``` 
 
 ## Test tensorflow
