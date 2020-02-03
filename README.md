@@ -50,7 +50,7 @@ unzip ../bazel-0.19.2-dist.zip
 Before compiling, we need to remove line 30 of ./src/tools/singlejar/mapped_file_posix.inc file (**#error This code for 64 bit Unix.**) that throws an error if we are not in a 64 bit machine. This bazel version works ok in 32 bits.
 
 ``` bash
-vi  ./src/tools/singlejar/mapped_file_posix.inc
+sed -i  's/#error This code for 64 bit Unix.//g' ./src/tools/singlejar/mapped_file_posix.inc
 ```
 
 Also we need to increase the java memory available to Bazel and start compiling it.
@@ -72,9 +72,8 @@ Create a folder and clone tensorflow's 1.13.2 version to it. Starting from versi
 
 ``` bash
 cd $HOME
-mkdir Tensorflow-1.13.2
+git clone -b v1.13.2 --depth=1 https://github.com/tensorflow/tensorflow Tensorflow-1.13.2
 cd Tensorflow-1.13.2
-git clone -b v1.13.2 --depth=1 https://github.com/tensorflow/tensorflow .
 ```
 
 Before compiling, we replace the references to 64 bit libraries to the 32 bit ones.
