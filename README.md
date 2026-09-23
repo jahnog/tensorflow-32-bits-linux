@@ -10,7 +10,7 @@ This repository is not affiliated with Google or the TensorFlow authors.
 |---|---|
 | Debian 12 (bookworm), 32-bit, **no compile** | [Install on Debian 12](#install-on-debian-12-without-compiling) |
 | Build it yourself on Debian 12 | [Compile on Debian 12](#compile-tensorflow-1132-on-debian-12-i386) |
-| Older Debian 9 or Ubuntu 16.04 / 18.04 wheels | [`dist/`](dist/) |
+| Older Debian 9 or Ubuntu 16.04 / 18.04 | [OLD_README.md](OLD_README.md) and [`dist/`](dist/) |
 
 The install scripts in this repository are MIT (see `LICENSE`). The TensorFlow wheel is Apache 2.0 (see `debian12/NOTICE`).
 
@@ -237,9 +237,9 @@ Each of these stopped a real build on Debian 12 with GCC 12 and glibc 2.36.
 
 ---
 
-## Older prebuilt wheels
+## Older Debian 9 and Ubuntu instructions
 
-`dist/` has wheels built earlier for Debian 9 and Ubuntu 16.04 / 18.04:
+The original install and compile steps for Debian 9 and Ubuntu 16.04 / 18.04 are in [OLD_README.md](OLD_README.md). The wheels from that guide are still in `dist/`:
 
 - `dist/tensorflow-1.13.2-cp35-cp35m-linux_i686.whl`
 - `dist/tensorflow-1.13.2-cp36-cp36m-linux_i686.whl`
