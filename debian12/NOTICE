@@ -1,0 +1,14 @@
+This folder redistributes an unofficial build of TensorFlow 1.13.2 for
+32-bit Debian 12 (bookworm, i686). It is not affiliated with Google or
+the TensorFlow authors.
+
+The TensorFlow wheel is under the Apache License 2.0:
+https://github.com/tensorflow/tensorflow/blob/v1.13.2/LICENSE
+
+CPython 3.6.15 is under the PSF License:
+https://docs.python.org/3.6/license.html
+
+OpenSSL 1.1.1w is under the OpenSSL License and the original SSLeay License.
+
+The install scripts in this repository are under the MIT license in the
+repository root.
